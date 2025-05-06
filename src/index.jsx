@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
 import {
   APP_INIT_ERROR,
@@ -17,21 +17,22 @@ import configureStore from './store';
 import './index.scss';
 import App from './App';
 
+const rootNode = createRoot(document.getElementById('root'));
 subscribe(APP_READY, () => {
   const { store } = configureStore(process.env.NODE_ENV);
-
-  ReactDOM.render(
-    <AppProvider store={store}>
-      <App />
-    </AppProvider>,
-    document.getElementById('root'),
+  rootNode.render(
+    <StrictMode>
+      <AppProvider store={store}>
+        <App />
+      </AppProvider>
+    </StrictMode>,
   );
 
   sendPageEvent();
 });
 
 subscribe(APP_INIT_ERROR, (error) => {
-  ReactDOM.render(<ErrorPage message={error.message} />, document.getElementById('root'));
+  rootNode.render(<StrictMode><ErrorPage message={error.message} /></StrictMode>);
 });
 
 initialize({
