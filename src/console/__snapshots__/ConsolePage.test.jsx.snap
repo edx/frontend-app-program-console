@@ -104,15 +104,19 @@ exports[`ConsolePage renders error when filter returns no programs 1`] = `
               search
             </span>
           </label>
-          <input
-            class="form-control"
-            id="pgn-searchfield-input-4"
-            name="searchfield-input"
-            placeholder="Filter by Program Title"
-            role="searchbox"
-            type="text"
-            value=""
-          />
+          <div
+            class="pgn__form-control-decorator-group"
+          >
+            <input
+              class="form-control"
+              id="pgn-searchfield-input-4"
+              name="searchfield-input"
+              placeholder="Filter by Program Title"
+              role="searchbox"
+              type="text"
+              value=""
+            />
+          </div>
           <button
             aria-label="submit search"
             class="btn-icon btn-icon-primary btn-icon-sm pgn__searchfield__iconbutton-submit"
@@ -619,15 +623,19 @@ exports[`ConsolePage renders program banners when they are included 1`] = `
               search
             </span>
           </label>
-          <input
-            class="form-control"
-            id="pgn-searchfield-input-2"
-            name="searchfield-input"
-            placeholder="Filter by Program Title"
-            role="searchbox"
-            type="text"
-            value=""
-          />
+          <div
+            class="pgn__form-control-decorator-group"
+          >
+            <input
+              class="form-control"
+              id="pgn-searchfield-input-2"
+              name="searchfield-input"
+              placeholder="Filter by Program Title"
+              role="searchbox"
+              type="text"
+              value=""
+            />
+          </div>
           <button
             aria-label="submit search"
             class="btn-icon btn-icon-primary btn-icon-sm pgn__searchfield__iconbutton-submit"
@@ -1168,15 +1176,19 @@ exports[`ConsolePage renders programs when there is data passed in 1`] = `
               search
             </span>
           </label>
-          <input
-            class="form-control"
-            id="pgn-searchfield-input-1"
-            name="searchfield-input"
-            placeholder="Filter by Program Title"
-            role="searchbox"
-            type="text"
-            value=""
-          />
+          <div
+            class="pgn__form-control-decorator-group"
+          >
+            <input
+              class="form-control"
+              id="pgn-searchfield-input-1"
+              name="searchfield-input"
+              placeholder="Filter by Program Title"
+              role="searchbox"
+              type="text"
+              value=""
+            />
+          </div>
           <button
             aria-label="submit search"
             class="btn-icon btn-icon-primary btn-icon-sm pgn__searchfield__iconbutton-submit"
