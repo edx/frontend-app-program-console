@@ -26,7 +26,12 @@ detect_changed_source_translations:
 	# Checking for changed translations...
 	git diff --exit-code $(i18n)
 
-# Experimental: OEP-58 Pulls translations using atlas
+# Variables for additional translation sources and imports (define in edx-internal if needed)
+ATLAS_EXTRA_SOURCES ?=
+ATLAS_EXTRA_INTL_IMPORTS ?=
+ATLAS_OPTIONS ?=
+
+# OEP-58: Pulls translations using atlas
 pull_translations:
 	rm -rf src/i18n/messages
 	mkdir src/i18n/messages
@@ -36,9 +41,11 @@ pull_translations:
                translations/frontend-component-footer/src/i18n/messages:frontend-component-footer \
                translations/frontend-component-header/src/i18n/messages:frontend-component-header \
                translations/paragon/src/i18n/messages:paragon \
-               translations/frontend-app-account/src/i18n/messages:frontend-app-program-manager
+			   translations/frontend-app-account/src/i18n/messages:frontend-app-program-manager \
+               translations/frontend-app-program-console/src/i18n/messages:frontend-app-program-console \
+               $(ATLAS_EXTRA_SOURCES)
 
-	$(intl_imports) frontend-platform frontend-component-header frontend-component-footer paragon frontend-app-program-manager
+	$(intl_imports) frontend-platform frontend-component-header frontend-component-footer paragon frontend-app-program-manager frontend-app-program-console $(ATLAS_EXTRA_INTL_IMPORTS)
 
 
 validate-no-uncommitted-package-lock-changes: ## ensure package-lock.json is committed
